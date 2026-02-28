@@ -1605,7 +1605,7 @@ function buy(button) {
             if (obj['op'] == 'block') {
                 return Block(obj);
             }
-            txcount = parseInt(obj['x']['tx_index']);
+            if(!obj || !obj['x'] || !obj['x']['tx_index']) return; txcount = parseInt(obj['x']['tx_index']);
             lasttx = obj['x']['hash'];
 
             $('.count').html(txcount);
@@ -1669,6 +1669,7 @@ function buy(button) {
         blockImg.src = "https://gamepedia.cursecdn.com/minecraft_gamepedia/7/7a/Block_of_Diamond_JE3_BE2.png?version=799f6d8d487c35d7f3d3023374a2488d";
 
         var canvas = $('#canvas')[0];
+            if(!canvas) return;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
@@ -1772,6 +1773,7 @@ function buy(button) {
 </body>
 
 </html>
+
 
 
 
