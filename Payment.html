@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -59,7 +59,7 @@
                         <div class="media">
 
                             <div class="media-body align-self-center">
-                                <h6><span>Hi,</span>jordanb</h6>
+                                <h6><span>Hi, </span><span class='display-name'>...</span></h6>
                             </div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -77,13 +77,13 @@
                                         stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
                                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                         <circle cx="12" cy="7" r="4"></circle>
-                                    </svg> jordanb's Profile</a>
+                                    </svg> <span class='display-name'>...</span>'s Profile</a>
                             </div>
                             <div class="dropdown-item">
-                                <a class="" href="mailto:realwhiskyhot@gmail.com"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-lock">
+                                <a class="" href="mailto:realwhiskyhot@gmail.com"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-lock">
                                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                     </svg>Support</a>
@@ -142,7 +142,7 @@
                                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                 </svg>
-                                <span>jordanb | $0.00 </span>
+                                <span><span class='display-combined'>... | $0.00</span> </span>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -152,7 +152,7 @@
                         </a>
                         <ul class="collapse submenu list-unstyled" id="dashboard" data-parent="#topAccordion">
                             <li>
-                                <a href="/Home"> jordanb's account </a>
+                                <a href="/Home"> <span class='display-name'>...</span>'s account </a>
                             </li>
                             <li>
                                 <a href="/Payment"> Deposit Bitcoin </a>
@@ -167,7 +167,7 @@
                                 <a href="/login"> Lockscreen </a>
                             </li>
                             <li>
-                                <a href="/logout"> Sign-out </a>
+                                <a href="#" class="logout-btn"> Sign-out </a>
                             </li>
                         </ul>
                     </li>
@@ -547,6 +547,10 @@
                                             Send only bitcoin to this address, sending any other coin or token to this
                                             address will lead to loss of assets, thank you!
                                         </p>
+                                        <p
+                                            style="margin-top:-10px; margin-bottom:20px; font-weight:bold; color:#0056b3;">
+                                            After sending, click "Verify Deposit" below to process your payment!
+                                        </p>
 
                                         <div id="qrcode" style="max-width: 100%; width: 200px; height: auto;"></div>
 
@@ -563,8 +567,32 @@
                                                 </path>
                                             </svg> Copy Address
                                         </a>
+
+                                        <button id="verify-deposit-btn" class="mb-2 btn btn-success"
+                                            style="margin-left: 10px;">
+                                            Verify Deposit
+                                        </button>
+
+                                        <div id="verify-loader"
+                                            style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc;">
+                                            <div
+                                                style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                                                <div class="spinner-border text-primary" role="status"
+                                                    style="margin-right: 15px; width: 1.5rem; height: 1.5rem;">
+                                                </div>
+                                                <strong id="verify-status-text" style="font-size: 15px;">Verifying
+                                                    deposit on the blockchain... Please wait up to 60 seconds.</strong>
+                                            </div>
+                                            <p class="text-center mb-0" style="font-size: 14px; margin-top: 10px;">
+                                                Taking too long? <a href="https://t.me/aadmin4cnc" target="_blank"
+                                                    style="color: #0088cc; font-weight: bold; text-decoration: underline;">Talk
+                                                    to Admin</a>
+                                            </p>
+                                        </div>
+
                                         <input style="display: none;" type="text"
-                                            value="bc1qescgnz8vr4qw2qe3s9kwctln2e683upr77aeqs59q62cacrgvquqdkl46u" id="myInput">
+                                            value="bc1qescgnz8vr4qw2qe3s9kwctln2e683upr77aeqs59q62cacrgvquqdkl46u"
+                                            id="myInput">
                                         <input style="display:none;" type="text" spellcheck="false" id="text"
                                             value="bc1qescgnz8vr4qw2qe3s9kwctln2e683upr77aeqs59q62cacrgvquqdkl46u" />
                                     </div>
@@ -578,7 +606,7 @@
 
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright Â© 2024 <a target="_blank" href="">Whiskyhot</a>, All rights reserved.</p>
+                    <p class="">Copyright © 2024 <a target="_blank" href="">Whiskyhot</a>, All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -948,7 +976,97 @@
     </script>
     <script src="/static/assets/jsaccount/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <script type="module" src="/static/assets/jslogin/auth-state.js"></script>
+
+    <script type="module">
+        import { auth, db } from "/static/assets/jslogin/firebase-config.js";
+        import { collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        document.addEventListener('userDataLoaded', () => {
+            const verifyBtn = document.getElementById('verify-deposit-btn');
+            const loaderDiv = document.getElementById('verify-loader');
+            const statusText = document.getElementById('verify-status-text');
+
+            verifyBtn.addEventListener('click', async () => {
+                if (!window.currentUser) return;
+
+                verifyBtn.style.display = 'none';
+                loaderDiv.style.display = 'block';
+                statusText.innerText = "Verifying deposit on the blockchain... Please wait up to 60 seconds.";
+                statusText.style.color = "inherit";
+
+                const spinner = loaderDiv.querySelector('.spinner-border');
+                if (spinner) spinner.style.display = 'inline-block';
+
+                try {
+                    // Create a pending deposit record in Firestore collection 'deposits'
+                    const depositRef = await addDoc(collection(db, "deposits"), {
+                        userId: window.currentUser.uid,
+                        email: window.currentUser.email,
+                        name: window.currentUser.name,
+                        status: 'pending',
+                        timestamp: new Date()
+                    });
+
+                    let verified = false;
+                    let secondsElapsed = 0;
+
+                    // Listen for updates from admin
+                    const unsubscribe = onSnapshot(depositRef, (docSnap) => {
+                        if (docSnap.exists()) {
+                            const data = docSnap.data();
+                            if (data.status === 'approved') {
+                                verified = true;
+                                statusText.innerText = "Deposit successfully verified! Your balance has been updated.";
+                                statusText.style.color = "green";
+                                if (spinner) spinner.style.display = 'none';
+                                unsubscribe();
+                                setTimeout(() => window.location.reload(), 3000);
+                            } else if (data.status === 'rejected') {
+                                verified = true;
+                                statusText.innerText = "Deposit rejected. Payment not found.";
+                                statusText.style.color = "red";
+                                if (spinner) spinner.style.display = 'none';
+                                verifyBtn.style.display = 'inline-block';
+                                verifyBtn.innerText = "Try Again";
+                                unsubscribe();
+                            }
+                        }
+                    });
+
+                    // 60 second timeout
+                    const timer = setInterval(() => {
+                        secondsElapsed++;
+                        if (verified) {
+                            clearInterval(timer);
+                            return;
+                        }
+
+                        if (secondsElapsed >= 60) {
+                            clearInterval(timer);
+                            unsubscribe();
+                            if (!verified) {
+                                statusText.innerText = "Deposit not found. If you just sent it, please wait for network confirmations and try again.";
+                                statusText.style.color = "red";
+                                if (spinner) spinner.style.display = 'none';
+                                verifyBtn.style.display = 'inline-block';
+                                verifyBtn.innerText = "Try Again";
+                            }
+                        }
+                    }, 1000);
+
+                } catch (err) {
+                    console.error("Verification error", err);
+                    alert("Error initiating verification. Please check your connection.");
+                    verifyBtn.style.display = 'inline-block';
+                    loaderDiv.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
-

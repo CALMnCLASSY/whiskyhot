@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Whiskyhot | Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
+    <link href="/static/assets/bootstraplogin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            padding: 40px;
+            background-color: #f1f2f3;
+        }
+
+        .card {
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            margin-bottom: 30px;
+        }
+
+        .table th {
+            border-top: none;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #3b3f5c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="admin-content" style="display:none;">
+        <h1 class="mb-5 text-center">Whiskyhot Admin Dashboard</h1>
+
+        <div class="card">
+            <h2>Pending Deposits</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>User Email</th>
+                        <th>User Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="deposits-table-body">
+                    <!-- Dynamic -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Manage Users</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Balance ($)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table-body">
+                    <!-- Dynamic -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Firebase Logic -->
+    <script type="module">
+        import { auth, db } from "/static/assets/jslogin/firebase-config.js";
+        import { collection, query, where, getDocs, doc, updateDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        // Simple protection
+        const pwd = prompt("Enter Admin Password:");
+        if (pwd !== "whiskyadmin") {
+            window.location.href = "/Home";
+        } else {
+            document.getElementById('admin-content').style.display = 'block';
+            initAdmin();
+        }
+
+        function initAdmin() {
+            // 1. Listen to Pending Deposits
+            const q = query(collection(db, "deposits"), where("status", "==", "pending"));
+            onSnapshot(q, (snapshot) => {
+                const tbody = document.getElementById('deposits-table-body');
+                tbody.innerHTML = '';
+                if (snapshot.empty) {
+                    tbody.innerHTML = '<tr><td colspan="4" class="text-center">No pending deposits.</td></tr>';
+                    return;
+                }
+                snapshot.forEach((depositDoc) => {
+                    const data = depositDoc.data();
+                    const tr = document.createElement('tr');
+
+                    const dateObj = data.timestamp ? data.timestamp.toDate() : new Date();
+
+                    tr.innerHTML = `
+                        <td>${dateObj.toLocaleString()}</td>
+                        <td>${data.email}</td>
+                        <td>${data.name || 'N/A'}</td>
+                        <td>
+                            <button class="btn btn-sm btn-success approve-btn" data-id="${depositDoc.id}" data-uid="${data.userId}">Approve</button>
+                            <button class="btn btn-sm btn-danger reject-btn" data-id="${depositDoc.id}">Reject</button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                // Attach Handlers
+                document.querySelectorAll('.approve-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        const id = e.target.getAttribute('data-id');
+                        const uid = e.target.getAttribute('data-uid');
+                        const amount = prompt("Enter amount to add to user's balance ($):");
+                        if (!amount || isNaN(amount)) return alert("Invalid amount");
+
+                        try {
+                            // Update Deposit Status
+                            await updateDoc(doc(db, "deposits", id), { status: 'approved', amount: parseFloat(amount) });
+
+                            // Fetch user current balance and add to it
+                            const userRef = doc(db, "users", uid);
+                            const userDocs = await getDocs(query(collection(db, "users")));
+                            let currentBalance = 0;
+                            userDocs.forEach(u => { if (u.id === uid) currentBalance = parseFloat(u.data().balance || 0); });
+
+                            await updateDoc(userRef, { balance: currentBalance + parseFloat(amount) });
+                            alert("Approved and balance updated!");
+                        } catch (err) {
+                            console.error(err);
+                            alert("Error: " + err.message);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.reject-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        if (!confirm("Are you sure you want to reject this deposit?")) return;
+                        const id = e.target.getAttribute('data-id');
+                        try {
+                            await updateDoc(doc(db, "deposits", id), { status: 'rejected' });
+                            alert("Deposit rejected.");
+                        } catch (err) {
+                            console.error(err);
+                            alert("Error: " + err.message);
+                        }
+                    });
+                });
+            });
+
+            // 2. Listen to Users
+            onSnapshot(collection(db, "users"), (snapshot) => {
+                const tbody = document.getElementById('users-table-body');
+                tbody.innerHTML = '';
+                snapshot.forEach((userDoc) => {
+                    const data = userDoc.data();
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${data.email}</td>
+                        <td>${data.name || 'N/A'}</td>
+                        <td>
+                            <input type="number" id="bal-${userDoc.id}" class="form-control" style="width:100px; display:inline;" value="${data.balance}" />
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-primary save-user-btn" data-id="${userDoc.id}">Save</button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                document.querySelectorAll('.save-user-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        const id = e.target.getAttribute('data-id');
+                        const newBal = document.getElementById('bal-' + id).value;
+                        if (isNaN(newBal)) return alert("Invalid balance");
+
+                        try {
+                            await updateDoc(doc(db, "users", id), { balance: parseFloat(newBal) });
+                            alert("User balance updated.");
+                        } catch (err) {
+                            console.error(err);
+                            alert("Error: " + err.message);
+                        }
+                    });
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

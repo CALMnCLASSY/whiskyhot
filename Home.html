@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -52,7 +52,7 @@
                         <div class="media">
                             
                             <div class="media-body align-self-center">
-                                <h6><span>Hi,</span>jordanb</h6>
+                                <h6><span>Hi, </span><span class='display-name'>...</span></h6>
                             </div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -60,7 +60,7 @@
                     <div class="dropdown-menu position-absolute animated fadeInUp" aria-labelledby="user-profile-dropdown">
                         <div class="">
                             <div class="dropdown-item">
-                                <a class="" href="/Home"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> jordanb's Profile</a>
+                                <a class="" href="/Home"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span class='display-name'>...</span>'s Profile</a>
                             </div>
                             <div class="dropdown-item">
                                 <a class="" href="mailto:realwhiskyhot@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -74,7 +74,7 @@
                                 <a class="" href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Lock Screen</a>
                             </div>
                             <div class="dropdown-item">
-                                <a class="" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Sign Out</a>
+                                <a class="" href="#" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Sign Out</a>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                 </svg>
-                                <span>jordanb | $0.00 </span>
+                                <span><span class='display-combined'>... | $0.00</span> </span>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -122,7 +122,7 @@
                         </a>
                         <ul class="collapse submenu list-unstyled" id="dashboard" data-parent="#topAccordion">
                             <li>
-                                <a href="/Home"> jordanb's account </a>
+                                <a href="/Home"> <span class='display-name'>...</span>'s account </a>
                             </li>
                             <li>
                                 <a href="/Payment"> Deposit Bitcoin </a>
@@ -137,7 +137,7 @@
                                 <a href="/login"> Lockscreen </a>
                             </li>
                             <li>
-                                <a href="/logout"> Sign-out </a>
+                                <a href="#" class="logout-btn"> Sign-out </a>
                             </li>
                         </ul>
                     </li>
@@ -498,7 +498,7 @@
                                 </div>
                                 <div class="text-center user-info">
                                     <img src="/static/assets/imgaccount/profile-3.jpeg" alt="avatar">
-                                    <p class="">jordanb</p>
+                                    <p class='display-name'>...</p>
                                 </div>
                                 <div class="user-info-list">
 
@@ -673,7 +673,7 @@
             </div>
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright Â© 2024 <a target="_blank" href="">Whiskyhot</a>, All rights reserved.</p>
+                    <p class="">Copyright © 2024 <a target="_blank" href="">Whiskyhot</a>, All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -1042,7 +1042,11 @@ function buy(button) {
 </script>
 <script src="/static/assets/jsaccount/custom.js"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <script type="module" src="/static/assets/jslogin/auth-state.js"></script>
 </body>
 
 </html>
+
+
 
