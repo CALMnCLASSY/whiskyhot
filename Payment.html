@@ -486,9 +486,9 @@
                             <div class="fa fa-credit-card">
                                 <span>Cards</span>
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-chevron-down">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-chevron-down">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </a>
@@ -576,10 +576,63 @@
 
                                 <div class="widget-content widget-content-area clipboard-copy-para">
                                     <div class="clipboard copy-txt">
-                                        <p class="otp-pass">This is your Bitcoin deposit address
-                                            <span
-                                                id="paragraph-copy1">bc1qescgnz8vr4qw2qe3s9kwctln2e683upr77aeqs59q62cacrgvquqdkl46u</span>
-                                        </p>
+                                        <p class="otp-pass" style="margin-bottom: 10px;">This is your Bitcoin deposit
+                                            address</p>
+
+                                        <div id="btc-address-wrapper" style="
+                                            display: flex;
+                                            align-items: center;
+                                            gap: 10px;
+                                            background: #1a1a2e;
+                                            border: 1px solid #333;
+                                            border-radius: 8px;
+                                            padding: 12px 16px;
+                                            margin-bottom: 20px;
+                                            max-width: 100%;
+                                        ">
+                                            <span id="paragraph-copy1" style="
+                                                font-family: 'Courier New', Courier, monospace;
+                                                font-size: 14px;
+                                                color: #f0f0f0;
+                                                word-break: break-all;
+                                                user-select: all;
+                                                -webkit-user-select: all;
+                                                -moz-user-select: all;
+                                                cursor: text;
+                                                flex: 1;
+                                                letter-spacing: 0.5px;
+                                                line-height: 1.6;
+                                            ">bc1qescgnz8vr4qw2qe3s9kwctln2e683upr77aeqs59q62cacrgvquqdkl46u</span>
+
+                                            <button onclick="copyBtcAddress()" id="copy-btn" title="Copy Address" style="
+                                                background: #0056b3;
+                                                border: none;
+                                                border-radius: 6px;
+                                                color: white;
+                                                padding: 8px 12px;
+                                                cursor: pointer;
+                                                display: flex;
+                                                align-items: center;
+                                                gap: 6px;
+                                                font-size: 13px;
+                                                font-weight: 600;
+                                                white-space: nowrap;
+                                                transition: background 0.2s ease;
+                                                flex-shrink: 0;
+                                            " onmouseover="this.style.background='#004494'"
+                                                onmouseout="this.style.background=this.dataset.copied==='true'?'#28a745':'#0056b3'">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-copy" id="copy-icon">
+                                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
+                                                    </path>
+                                                </svg>
+                                                <span id="copy-btn-text">Copy</span>
+                                            </button>
+                                        </div>
+
                                         <p class="mb-4" style="margin-bottom: 20px; color: red;">
                                             Send only bitcoin to this address, sending any other coin or token to this
                                             address will lead to loss of assets, thank you!
@@ -592,18 +645,6 @@
                                         <div id="qrcode" style="max-width: 100%; width: 200px; height: auto;"></div>
 
                                         <br><br>
-
-                                        <a onclick="myFunction()" class="mb-2 btn btn-primary" href="javascript:;"
-                                            data-clipboard-action="copy" data-clipboard-target="#paragraph-copy1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-copy">
-                                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
-                                                </path>
-                                            </svg> Copy Address
-                                        </a>
 
                                         <button id="verify-deposit-btn" class="mb-2 btn btn-success"
                                             style="margin-left: 10px;">
@@ -762,17 +803,32 @@
     </script>
 
     <script>
-        function myFunction() {
-
+        function copyBtcAddress() {
             var copyText = document.getElementById("myInput");
-
             copyText.select();
             copyText.setSelectionRange(0, 99999);
-
             navigator.clipboard.writeText(copyText.value);
 
-            alert("Copied the address: " + copyText.value);
+            // Visual feedback
+            var btn = document.getElementById("copy-btn");
+            var btnText = document.getElementById("copy-btn-text");
+            var icon = document.getElementById("copy-icon");
+
+            btn.style.background = "#28a745";
+            btn.dataset.copied = "true";
+            btnText.textContent = "Copied!";
+            icon.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+
+            setTimeout(function () {
+                btn.style.background = "#0056b3";
+                btn.dataset.copied = "false";
+                btnText.textContent = "Copy";
+                icon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+            }, 2000);
         }
+
+        // Keep legacy function for compatibility
+        function myFunction() { copyBtcAddress(); }
     </script>
     <script>
         var lasttx = "";
@@ -851,7 +907,7 @@
                 if (obj['op'] == 'block') {
                     return Block(obj);
                 }
-                if(!obj || !obj['x'] || !obj['x']['tx_index']) return; txcount = parseInt(obj['x']['tx_index']);
+                if (!obj || !obj['x'] || !obj['x']['tx_index']) return; txcount = parseInt(obj['x']['tx_index']);
                 lasttx = obj['x']['hash'];
 
                 $('.count').html(txcount);
@@ -915,7 +971,7 @@
             blockImg.src = "https://gamepedia.cursecdn.com/minecraft_gamepedia/7/7a/Block_of_Diamond_JE3_BE2.png?version=799f6d8d487c35d7f3d3023374a2488d";
 
             var canvas = $('#canvas')[0];
-            if(!canvas) return;
+            if (!canvas) return;
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
