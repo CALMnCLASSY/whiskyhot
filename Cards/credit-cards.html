@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Whiskyhot | </title>
+    <title>Whiskyhot | Credit Cards</title>
     <link rel="icon" type="image/x-icon" href="/static/assets/imgaccount/favicon.ico" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
@@ -97,9 +97,10 @@
                                     </svg> Lock Screen</a>
                             </div>
                             <div class="dropdown-item">
-                                <a class="" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out">
+                                <a class="" href="#" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-log-out">
                                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                                         <polyline points="16 17 21 12 16 7"></polyline>
                                         <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -481,14 +482,15 @@
 
                         </ul>
                     </li>
+
                     <li class="menu single-menu">
                         <a href="#cards" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="fa fa-credit-card">
                                 <span>Cards</span>
                             </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-chevron-down">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-chevron-down">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </a>
@@ -516,8 +518,6 @@
                             </li>
                         </ul>
                     </li>
-
-
 
                     <li class="menu single-menu">
                         <a href="#more" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -556,99 +556,252 @@
 
 
 
+        <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
-            <div class="container">
-                <div class="container">
-                    <div class="row">
+            <div class="layout-px-spacing">
 
-                        <div id="fclCoyParagraph" class="col-lg-12 col-md-12 col-sm-12 layout-spacing">
-                            <div class="statbox widget box box-shadow">
-                                <div class="widget-header">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h4 style="margin-bottom: 20px; color: red;">Insufficient Balance</h4>
-                                        </div>
-                                        <div class="col-12">
-                                            <h4>Account Balance: $0.00</h4>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="row layout-top-spacing" id="cancel-row">
 
-                                <div class="widget-content widget-content-area clipboard-copy-para">
-                                    <div class="clipboard copy-txt">
-                                        <p class="otp-pass">This is your Bitcoin deposit address
-                                            <span
-                                                id="paragraph-copy1">bc1qescgnz8vr4qw2qe3s9kwctln2e683upr77aeqs59q62cacrgvquqdkl46u</span>
-                                        </p>
-                                        <p class="mb-4" style="margin-bottom: 20px; color: red;">
-                                            Send only bitcoin to this address, sending any other coin or token to this
-                                            address will lead to loss of assets, thank you!
-                                        </p>
-                                        <p
-                                            style="margin-top:-10px; margin-bottom:20px; font-weight:bold; color:#0056b3;">
-                                            After sending, click "Verify Deposit" below to process your payment!
-                                        </p>
+                    <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                        <div class="widget-content widget-content-area br-6">
+                            <div class="table-responsive mb-4 mt-4">
+                                <table class="multi-table table table-hover" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Card Type</th>
+                                            <th>Description</th>
 
-                                        <div id="qrcode" style="max-width: 100%; width: 200px; height: auto;"></div>
+                                            <th>Price</th>
+                                            <th>Limit</th>
+                                            <th class="text-center">ORDER</th>
 
-                                        <br><br>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Visa Platinum</td>
+                                            <td>US ISSUED | FULLZ + CVV | HIGH BALANCE | NON-VBV | DOB: 14/3/1985
+                                                GENDER: MALE</td>
+                                            <td>$120</td>
+                                            <td>$15,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mastercard Gold</td>
+                                            <td>US ISSUED | CVV ONLY | MEDIUM BALANCE | NON-VBV | DOB: 22/7/1990 GENDER:
+                                                FEMALE</td>
+                                            <td>$85</td>
+                                            <td>$8,500</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visa Signature</td>
+                                            <td>UK ISSUED | FULLZ + CVV + DOB | HIGH BALANCE | 3DS ENROLLED | DOB:
+                                                5/11/1978 GENDER: MALE</td>
+                                            <td>$195</td>
+                                            <td>$25,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Amex Gold</td>
+                                            <td>US ISSUED | FULLZ + CVV | PREMIUM TIER | NON-VBV | DOB: 19/6/1982
+                                                GENDER: FEMALE</td>
+                                            <td>$250</td>
+                                            <td>$35,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visa Classic</td>
+                                            <td>CA ISSUED | CVV ONLY | STANDARD BALANCE | NON-VBV | DOB: 8/2/1995
+                                                GENDER: MALE</td>
+                                            <td>$45</td>
+                                            <td>$3,500</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mastercard World</td>
+                                            <td>US ISSUED | FULLZ + CVV + SSN | ELITE TIER | NON-VBV | DOB: 30/9/1975
+                                                GENDER: MALE</td>
+                                            <td>$310</td>
+                                            <td>$50,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visa Infinite</td>
+                                            <td>UK ISSUED | FULLZ + CVV | ULTRA PREMIUM | 3DS BYPASS | DOB: 12/4/1970
+                                                GENDER: FEMALE</td>
+                                            <td>$425</td>
+                                            <td>$75,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Discover It</td>
+                                            <td>US ISSUED | CVV + ZIP | STANDARD BALANCE | NON-VBV | DOB: 17/8/1988
+                                                GENDER: MALE</td>
+                                            <td>$65</td>
+                                            <td>$5,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Amex Platinum</td>
+                                            <td>US ISSUED | FULLZ + CVV + SSN + DL | ULTRA PREMIUM | NON-VBV | DOB:
+                                                3/1/1968 GENDER: MALE</td>
+                                            <td>$520</td>
+                                            <td>$100,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visa Classic</td>
+                                            <td>AU ISSUED | CVV ONLY | LOW BALANCE | NON-VBV | DOB: 25/12/1992 GENDER:
+                                                FEMALE</td>
+                                            <td>$35</td>
+                                            <td>$2,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mastercard Platinum</td>
+                                            <td>CA ISSUED | FULLZ + CVV | HIGH BALANCE | NON-VBV | DOB: 7/5/1983 GENDER:
+                                                MALE</td>
+                                            <td>$145</td>
+                                            <td>$18,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visa Platinum</td>
+                                            <td>US ISSUED | FULLZ + CVV + DOB | HIGH BALANCE | NON-VBV | DOB: 28/6/1979
+                                                GENDER: FEMALE</td>
+                                            <td>$155</td>
+                                            <td>$20,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Amex Blue</td>
+                                            <td>US ISSUED | CVV + BILLING | MEDIUM BALANCE | NON-VBV | DOB: 11/10/1991
+                                                GENDER: MALE</td>
+                                            <td>$95</td>
+                                            <td>$7,500</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mastercard Standard</td>
+                                            <td>UK ISSUED | CVV ONLY | LOW BALANCE | NON-VBV | DOB: 16/3/1997 GENDER:
+                                                FEMALE</td>
+                                            <td>$30</td>
+                                            <td>$1,500</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visa Business</td>
+                                            <td>US ISSUED | FULLZ + CVV + EIN | CORPORATE TIER | NON-VBV | DOB: 9/7/1972
+                                                GENDER: MALE</td>
+                                            <td>$380</td>
+                                            <td>$60,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Discover Miles</td>
+                                            <td>US ISSUED | FULLZ + CVV | REWARDS TIER | NON-VBV | DOB: 20/9/1986
+                                                GENDER: FEMALE</td>
+                                            <td>$110</td>
+                                            <td>$12,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visa Signature</td>
+                                            <td>CA ISSUED | FULLZ + CVV + DOB + SIN | PREMIUM TIER | NON-VBV | DOB:
+                                                4/11/1980 GENDER: MALE</td>
+                                            <td>$275</td>
+                                            <td>$30,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mastercard Gold</td>
+                                            <td>AU ISSUED | FULLZ + CVV | HIGH BALANCE | NON-VBV | DOB: 15/2/1977
+                                                GENDER: FEMALE</td>
+                                            <td>$135</td>
+                                            <td>$16,000</td>
+                                            <td class="text-center">
+                                                <a href="/Payment" style="color:red;" class="btn btn-outline-primary"
+                                                    type="button">Buy</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Card Type</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                            <th>Limit</th>
+                                            <th class="text-center">Order</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
 
-                                        <a onclick="myFunction()" class="mb-2 btn btn-primary" href="javascript:;"
-                                            data-clipboard-action="copy" data-clipboard-target="#paragraph-copy1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-copy">
-                                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1">
-                                                </path>
-                                            </svg> Copy Address
-                                        </a>
-
-                                        <button id="verify-deposit-btn" class="mb-2 btn btn-success"
-                                            style="margin-left: 10px;">
-                                            Verify Deposit
-                                        </button>
-
-                                        <div id="verify-loader"
-                                            style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc;">
-                                            <div
-                                                style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                                                <div class="spinner-border text-primary" role="status"
-                                                    style="margin-right: 15px; width: 1.5rem; height: 1.5rem;">
-                                                </div>
-                                                <strong id="verify-status-text" style="font-size: 15px;">Verifying
-                                                    deposit on the blockchain... Please wait up to 60 seconds.</strong>
-                                            </div>
-                                            <p class="text-center mb-0" style="font-size: 14px; margin-top: 10px;">
-                                                Taking too long? <a href="https://t.me/aadmin4cnc" target="_blank"
-                                                    style="color: #0088cc; font-weight: bold; text-decoration: underline;">Talk
-                                                    to Admin</a>
-                                            </p>
-                                        </div>
-
-                                        <input style="display: none;" type="text"
-                                            value="bc1qescgnz8vr4qw2qe3s9kwctln2e683upr77aeqs59q62cacrgvquqdkl46u"
-                                            id="myInput">
-                                        <input style="display:none;" type="text" spellcheck="false" id="text"
-                                            value="bc1qescgnz8vr4qw2qe3s9kwctln2e683upr77aeqs59q62cacrgvquqdkl46u" />
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
 
+                </div>
+
+            </div>
             <div class="footer-wrapper">
                 <div class="footer-section f-section-1">
-                    <p class="">Copyright © 2024 <a target="_blank" href="">Whiskyhot</a>, All rights reserved.</p>
+                    <p class="">Copyright © 2024 <a target="_blank" href="#">Whiskyhot</a>, All rights reserved.</p>
                 </div>
+
             </div>
         </div>
-
-
 
 
         <!--  END CONTENT AREA  -->
@@ -713,292 +866,6 @@
                 });
         }
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'></script>
-    <script>
-
-        function buy(button) {
-            var price = button.getAttribute('data-price');
-            var description = button.getAttribute('data-description');
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/buy', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.status === 'success') {
-
-                        window.location = "/Success";
-
-                        window.location.assign("/Success");
-                    } else {
-                        alert('You have insufficient bitcoin to purchase this log')
-                    }
-                } else {
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.status === 'fail') {
-
-                        alert('Failed to purchase item')
-                    } else {
-                        alert('Failed to purchase product')
-                    }
-                }
-            }
-
-            xhr.send('price=' + encodeURIComponent(price) + '&description=' + encodeURIComponent(description));
-        }
-
-        const qrcode = document.getElementById("qrcode");
-        const textInput = document.getElementById("text");
-
-        const qr = new QRCode(qrcode);
-
-        textInput.oninput = (e) => {
-            qr.makeCode(e.target.value.trim());
-        };
-
-        qr.makeCode(textInput.value.trim());
-    </script>
-
-    <script>
-        function myFunction() {
-
-            var copyText = document.getElementById("myInput");
-
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-
-            navigator.clipboard.writeText(copyText.value);
-
-            alert("Copied the address: " + copyText.value);
-        }
-    </script>
-    <script>
-        var lasttx = "";
-        var txcount = 0;
-        var particles = [];
-        var animationElapsed = 0;
-        var sound;
-        var volume = 0.1;
-
-        satoshi = 100000000;
-        symbol = symbol_btc = JSON.parse('{"symbol":"","code":"BTC","symbolAppearsAfter":true,"name":"Bitcoin","local":false,"conversion":100000000}')
-
-        function formatMoney(a, c, b) {
-            var d = formatSymbol(a, symbol, false, b);
-            return d;
-        }
-        function formatSymbol(a, d, b, c) {
-            var e;
-            if (d !== symbol_btc) {
-                e = convert(a, d.conversion)
-            } else {
-                e = formatSatoshi(a, sShift(d), false, c)
-            }
-            if (b) {
-                e = e.replace(/([1-9]\d*\.\d{2}?)(.*)/, '$1<span style="font-size:85%;">$2</span>')
-            }
-            if (d.symbolAppearsAfter) {
-                e += " " + d.symbol
-            } else {
-                e = d.symbol + " " + e
-            }
-            return e
-        }
-        function formatSatoshi(c, a, e, b) {
-            if (!c) {
-                return "0.00"
-            }
-            a = a || 0;
-            b = b || 8 - a;
-            valueShifted = c / symbol.conversion;
-            valueString = valueShifted.toFixed(b);
-            valueString = valueString.replace(/0+$/, "").replace(/\.$/, "");
-            if (!e) {
-                var d = valueString.split(".");
-                d[0] = d[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                valueString = d[1] ? d.join(".") : d[0]
-            }
-            return valueString
-        }
-        function convert(a, b) {
-            return (a / b).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        }
-        function formatBTC(a) {
-            return formatSymbol(a, symbol_btc)
-        }
-        function sShift(a) {
-            return (satoshi / a.conversion).toString().length - 1
-        }
-
-
-        $(document).ready(function () {
-            var ws = new WebSocket("wss://ws.blockchain.info/inv");
-            ws.onopen = function (event) {
-                ws.send('{"op": "ping"}');
-                ws.send('{"op": "unconfirmed_sub"}');
-                ws.send('{"op": "blocks_sub"}');
-            };
-            ws.onclose = function () {
-                document.location.reload();
-            };
-
-
-            ws.onmessage = function (event) {
-                //document.body.innerHTML+=event.data;
-                var obj = JSON.parse(event.data);
-                if (obj['op'] == 'block') {
-                    return Block(obj);
-                }
-                if(!obj || !obj['x'] || !obj['x']['tx_index']) return; txcount = parseInt(obj['x']['tx_index']);
-                lasttx = obj['x']['hash'];
-
-                $('.count').html(txcount);
-                $('.last-tx').html(lasttx);
-
-                var spents = obj['x']['out']; //array
-                var value = 0;
-
-                for (a = 0; a < spents.length; a++) {
-                    if (spents[a].n > 0)
-                        value += spents[a].value;
-                }
-
-                vl = formatMoney(value, false)
-
-                //console.log(vl)
-
-                particles.push({
-                    x: Math.random() * w - (imageObj.width * vl) + (imageObj.width * vl) / 2,
-                    y: -(imageObj.height * vl) - 10,
-                    l: Math.random() * 1,
-                    xs: -4 + Math.random() * 4 + 2,
-                    ys: Math.random() * 10 + 10,
-                    vl: parseFloat(vl) * .5,
-                    ag: 0,
-                    tp: 'tx'
-                });
-            };
-
-            var Block = function (data) {
-                $('.block').show();
-                var x = data.x;
-                $('.last-block-id').html(x.blockIndex);
-                $('.last-block-tx-count').html(x.nTx);
-
-                var t = new Date(x.time * 1000);
-                var formatted = t.toLocaleString();
-
-                $('.last-block-size').html(x.size);
-
-                $('.last-block-found-by').html(x.foundBy.description);
-                particles.push({
-                    x: window.innerWidth / 2,
-                    y: -(blockImg.height) - 10,
-                    l: Math.random() * 1,
-                    xs: -4 + Math.random() * 4 + 2,
-                    ys: Math.random() * 10 + 10,
-                    vl: parseFloat(0.1),
-                    ag: 0,
-                    tp: 'block'
-                });
-                sound = new Audio('https://my.mixtape.moe/nsnucr.ogg');
-                sound.volume = volume;
-                sound.play();
-            };
-
-            var imageObj = new Image();
-            imageObj.src = "https://bitcoin.org/img/icons/opengraph.png";
-
-            var blockImg = new Image();
-            blockImg.src = "https://gamepedia.cursecdn.com/minecraft_gamepedia/7/7a/Block_of_Diamond_JE3_BE2.png?version=799f6d8d487c35d7f3d3023374a2488d";
-
-            var canvas = $('#canvas')[0];
-            if(!canvas) return;
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            if (canvas.getContext) {
-                var ctx = canvas.getContext('2d');
-                var w = canvas.width;
-                var h = canvas.height;
-                ctx.strokeStyle = 'rgba(255, 219, 17, 1)';
-                ctx.lineWidth = 10;
-                ctx.lineCap = 'round';
-
-            }
-
-            function draw() {
-                elapsed = new Date() - animationElapsed;
-                ctx.clearRect(0, 0, w, h);
-                var pl = particles.length;
-                for (var c = 0; c < pl; c++) {
-                    var p = particles[c];
-                    //ctx.beginPath();
-                    //ctx.moveTo(p.x, p.y);
-                    //ctx.lineTo(p.x + p.l * p.xs, p.y + p.l * p.ys);
-
-                    var multiplyer = p.vl;
-
-                    if (multiplyer > 20) {
-                        multiplyer = 18;
-                    }
-                    width = imageObj.width * multiplyer;
-                    height = imageObj.height * multiplyer;
-
-
-                    //console.log(width)
-
-                    //console.log(p.ag)
-
-                    if (p.tp == 'block') {
-                        ctx.drawImage(blockImg, p.x + p.l * p.xs, p.y + p.l * p.ys);
-
-                    }
-                    else {
-                        ctx.drawImage(imageObj, p.x + p.l * p.xs, p.y + p.l * p.ys, width, height);
-                    }
-
-                    ctx.stroke();
-                }
-                move();
-                animationElapsed = new Date();
-                requestAnimationFrame(draw);
-            }
-
-            function move() {
-                var pl = particles.length;
-                for (var b = 0; b < pl; b++) {
-                    var p = particles[b];
-                    if (typeof p == 'undefined') {
-                        continue;
-                    }
-                    var gravity = p.vl;
-                    if (gravity < 0.08) {
-                        gravity = 0.08
-                    }
-                    else if (gravity > 4) {
-                        gravity = 4;
-                    }
-                    p.x += ((p.xs * elapsed) / 30);
-                    p.y += ((p.ys * elapsed) / 30) * gravity;
-
-                    if (p.y > h) {
-                        var index = particles.indexOf(p);
-                        if (index > -1) {
-                            particles.splice(index, 1);
-                        }
-                    }
-                }
-                $('.obj-count').html(particles.length)
-            }
-
-            //setInterval(draw, 33);
-            requestAnimationFrame(draw);
-        });
-    </script>
-    <!--transactions-->
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="/static/assets/jsaccount/libs/jquery-3.1.1.min.js"></script>
@@ -1015,96 +882,7 @@
     <script src="/static/assets/jsaccount/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
-    <!-- END GLOBAL MANDATORY SCRIPTS -->
-
     <script type="module" src="/static/assets/jslogin/auth-state.js"></script>
-
-    <script type="module">
-        import { auth, db } from "/static/assets/jslogin/firebase-config.js";
-        import { collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
-        document.addEventListener('userDataLoaded', () => {
-            const verifyBtn = document.getElementById('verify-deposit-btn');
-            const loaderDiv = document.getElementById('verify-loader');
-            const statusText = document.getElementById('verify-status-text');
-
-            verifyBtn.addEventListener('click', async () => {
-                if (!window.currentUser) return;
-
-                verifyBtn.style.display = 'none';
-                loaderDiv.style.display = 'block';
-                statusText.innerText = "Verifying deposit on the blockchain... Please wait up to 60 seconds.";
-                statusText.style.color = "inherit";
-
-                const spinner = loaderDiv.querySelector('.spinner-border');
-                if (spinner) spinner.style.display = 'inline-block';
-
-                try {
-                    // Create a pending deposit record in Firestore collection 'deposits'
-                    const depositRef = await addDoc(collection(db, "deposits"), {
-                        userId: window.currentUser.uid,
-                        email: window.currentUser.email,
-                        name: window.currentUser.name,
-                        status: 'pending',
-                        timestamp: new Date()
-                    });
-
-                    let verified = false;
-                    let secondsElapsed = 0;
-
-                    // Listen for updates from admin
-                    const unsubscribe = onSnapshot(depositRef, (docSnap) => {
-                        if (docSnap.exists()) {
-                            const data = docSnap.data();
-                            if (data.status === 'approved') {
-                                verified = true;
-                                statusText.innerText = "Deposit successfully verified! Your balance has been updated.";
-                                statusText.style.color = "green";
-                                if (spinner) spinner.style.display = 'none';
-                                unsubscribe();
-                                setTimeout(() => window.location.reload(), 3000);
-                            } else if (data.status === 'rejected') {
-                                verified = true;
-                                statusText.innerText = "Deposit rejected. Payment not found.";
-                                statusText.style.color = "red";
-                                if (spinner) spinner.style.display = 'none';
-                                verifyBtn.style.display = 'inline-block';
-                                verifyBtn.innerText = "Try Again";
-                                unsubscribe();
-                            }
-                        }
-                    });
-
-                    // 60 second timeout
-                    const timer = setInterval(() => {
-                        secondsElapsed++;
-                        if (verified) {
-                            clearInterval(timer);
-                            return;
-                        }
-
-                        if (secondsElapsed >= 60) {
-                            clearInterval(timer);
-                            unsubscribe();
-                            if (!verified) {
-                                statusText.innerText = "Deposit not found. If you just sent it, please wait for network confirmations and try again.";
-                                statusText.style.color = "red";
-                                if (spinner) spinner.style.display = 'none';
-                                verifyBtn.style.display = 'inline-block';
-                                verifyBtn.innerText = "Try Again";
-                            }
-                        }
-                    }, 1000);
-
-                } catch (err) {
-                    console.error("Verification error", err);
-                    alert("Error initiating verification. Please check your connection.");
-                    verifyBtn.style.display = 'inline-block';
-                    loaderDiv.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
